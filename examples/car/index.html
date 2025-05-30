@@ -1,0 +1,47 @@
+<!-- 1. Click on the square -->
+<!-- 2. Use arrows to move square-->
+<div id="street">
+    <div id="car"></div>
+</div>
+
+<style>
+#street {
+    position: relative;
+    background-color: grey;
+    width: 400px;
+    height: 400px;
+}
+
+#car {
+    position: absolute;
+    background-color: cyan;
+    width: 50px;
+    height: 50px;
+}
+</style>
+
+<script>
+
+document.addEventListener('keydown', e => {
+	
+    const car = document.getElementById('car');
+    car.top = parseInt(car.style.top || 0);
+    car.left = parseInt(car.style.left || 0);
+    car.speed = 50;
+
+    if (e.key == 'ArrowDown') {
+        if (car.top < 350) car.top = car.top + car.speed;
+    } else if (e.key == 'ArrowUp') {
+        if (car.top > 0) car.top = car.top - car.speed;
+    } else if (e.key == 'ArrowRight') {
+        if (car.left < 350) car.left = car.left + car.speed;
+    } else if (e.key == 'ArrowLeft') {
+        if (car.left > 0) car.left = car.left - car.speed;
+    }
+
+    car.style.top = car.top + 'px';
+    car.style.left = car.left + 'px';
+
+});
+
+</script>

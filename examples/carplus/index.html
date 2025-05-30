@@ -1,0 +1,82 @@
+<!-- 1. Click on the car -->
+<!-- 2. Use space bar to start/stop -->
+<!-- 3. Use arrows to change direction -->
+<div id="street">
+    <div id="car"></div>
+</div>
+
+<style>
+#street {
+    position: relative;
+    background-color: grey;
+    width: 400px;
+    height: 400px;
+}
+
+#car {
+    position: absolute;
+    background-image: url("https://solvertank.tech/solverplay/examples/carplus/car.png");
+    width: 100px;
+    height: 50px;
+}
+</style>
+
+<script>
+
+const car = {
+
+    status: 0,
+    top: 25,
+    left: 0,
+    rotate: 0,
+    speed: 10,
+    rotation: 10,
+
+    element: document.getElementById('car'),
+
+    load() {
+        document.addEventListener('keydown', e => {
+            if (e.key == ' ') {
+                this.status == 0 ? this.status = 1 : this.status = 0;
+            } else if (e.key == 'ArrowRight') {
+                this.rotate = this.rotate + this.rotation;
+            } else if (e.key == 'ArrowLeft') {
+                this.rotate = this.rotate - this.rotation;
+            };
+            if (this.rotate >= 360) this.rotate = this.rotate - 360;
+            else if (this.rotate < 0) this.rotate = this.rotate + 360;
+        });
+    },
+
+    refresh() {
+
+        hspeed = this.speed * Math.cos(this.rotate * Math.PI / 180);
+        vspeed = this.speed * Math.sin(this.rotate * Math.PI / 180);
+
+        if (this.rotate == 90 || this.rotate == 270) hspeed = 0;
+        if (this.rotate == 0 || this.rotate == 180) vspeed = 0;
+
+        if (this.status == 1) {
+            this.left = this.left + hspeed;
+            this.top = this.top + vspeed;
+        }
+
+        if (this.left > 300) this.left = 300;
+        else if (this.left < 0) this.left = 0;
+
+        if (this.top > 325) this.top = 325;
+        else if (this.top < 25) this.top = 25;
+
+        this.element.style.top = this.top + 'px';
+        this.element.style.left = this.left + 'px';
+        this.element.style.rotate = this.rotate + 'deg';
+    }
+
+}
+
+car.load();
+
+setInterval(() => car.refresh(), 100);
+
+
+</script>

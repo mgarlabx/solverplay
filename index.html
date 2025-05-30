@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Solverplay</title>
+	<link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="assets/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="assets/filesaver/FileSaver.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://solvertank.tech/solverjs/solverjs.js"></script>
+    <link rel="stylesheet" href="https://solvertank.tech/solverjs/solverjs.css">
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="script.js"></script>
+</head>
+
+<body>
+    <dialog id="modal">
+        <div id="modal-header">
+            <div id="modal-title"></div>
+            <div id="modal-buttons">
+                <div class="modal-button" id="modal-close"><i class="fa fa-times" aria-hidden="true"></i></div>
+            </div>
+        </div>
+        <div id="modal-body"></div>
+    </dialog>
+    <div id="main">
+        <div id="input">
+            <div class="editor-title" id="editor-html-title"></div>
+            <div class="editor" id="editor-html"></div>
+            <div class="editor-title" id="editor-css-title"></div>
+            <div class="editor" id="editor-css"></div>
+            <div class="editor-title" id="editor-javascript-title"></div>
+            <div class="editor" id="editor-javascript"></div>
+        </div>
+        <div id="output">
+            <div id="toolbox">
+                <div id="toolbox-buttons">
+                    <div id="toolbox-button-examples" class="toolbox-button"><i class="fa fa-lightbulb-o" aria-hidden="true"></i></div>
+                    <div id="toolbox-button-upload" class="toolbox-button"><i class="fa fa-upload" aria-hidden="true"></i></div>
+                    <input type="file" id="fileInput" style="display: none;">
+                    <div id="toolbox-button-download" class="toolbox-button"><i class="fa fa-download" aria-hidden="true"></i></div>
+                    <div id="toolbox-button-save" class="toolbox-button"><i class="fa fa-floppy-o" aria-hidden="true"></i></div>
+                    <div id="toolbox-button-clean" class="toolbox-button"><i class="fa fa-trash" aria-hidden="true"></i></div>
+                </div>
+                <div id="soverlogo"><a target="_blank" href="https://solvertank.tech"><img src="assets/img/cubo.png" height="30"></a></div>
+            </div>
+            <iframe id="iframe"></iframe>
+        </div>
+    </div>
+</body>
+
+</html>
