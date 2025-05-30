@@ -203,14 +203,15 @@ const toolbox = {
 // Load objects
 document.addEventListener('DOMContentLoaded', () => {
     
+    const appName = "SolverPlay";
     const lang = Z.languageBrowser() 
-    Z.termsShow('appName', lang, res => {
+    Z.termsShow(appName, lang, res => {
         if (res === false) {
             Z.termsError(lang);
             return;
         }
     });
-    Z.recordAccess('appName')
+    Z.recordAccess(appName)
 
 
     editor_html.load();
