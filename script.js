@@ -209,13 +209,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (res === false) {
             Z.termsError(lang);
             return;
-        } else {
-            Z.recordAccess(appName);
         }
     });
+    Z.recordAccess(appName);
     
-
-
     editor_html.load();
     editor_css.load();
     editor_javascript.load();
